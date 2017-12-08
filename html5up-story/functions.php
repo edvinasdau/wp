@@ -93,3 +93,21 @@ function mano_title($title){
     $title = '<span class="label">' . $title . '</span>';
     return $title;
 }
+
+$args = array(
+  'name' => 'Main Sidebar',
+  'id' => 'sidebar-1',
+  'description' => 'Main widget area',
+  'before_widget' => '<article id="%1$s" class="widget %2$s">',
+  'after_widget'  => '</article>',
+  'before_title'  => '<h2 class="widgettitle">',
+  'after_title'   => '</h2>',
+);
+register_sidebar( $args );
+
+function arunas_load_widget() {
+include_once( 'arunas-widget.php' );    
+    register_widget( 'Arunas_Widget' );
+}
+add_action( 'widgets_init', 'arunas_load_widget' );
+
